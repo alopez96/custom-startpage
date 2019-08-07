@@ -1,6 +1,13 @@
+## Personalized Startpage
 This project will be a web app where users can customize their own startpage.
 
-React note:
+### `Stack`
+- React
+- Express
+- Node
+
+## React Note
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
