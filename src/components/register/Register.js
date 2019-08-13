@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class Register extends React.Component {
   constructor(props){
@@ -24,10 +25,33 @@ class Register extends React.Component {
 
   onPasswordChange = (event) => {
     //update password state
+    this.setState({password: event.target.value})
   }
 
   onRegisterClick = () => {
-    console.log('register clicked')
+    //deconstruct variables from state
+    const { email, password, name } = this.state;
+    //http post request to /register
+
+    //create joined variable with this date
+    const joined = new Date();
+
+    axios.post(`http://localhost:3000/register/`, {
+      email, password, name, joined
+    })
+    //handle successful post
+    .then(response => {
+       //handle okay status (200)
+        if (response.status == 200) {
+            console.log('response succesful')
+        }
+        //handle any other response status
+        else{
+            console.log('upload error', response.data)
+        }
+    })
+    //handle error to post
+    .catch( err => console.log(err));
   }
 
   onLoginClick = () => {
