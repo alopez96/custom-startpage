@@ -8,19 +8,19 @@ class Grid extends Component {
     return (
     <div>
     <article>
-        <h2 class="f3 fw4 pa3 mv0">Welcome</h2>
-        <div class="cf pa2">
-            <div class="fl w-50 w-25-m w-25-l pa2">
+        <h2 className="f3 fw4 pa3 mv0">Welcome</h2>
+        <div className="cf pa2">
+            <div className="fl w-50 w-25-m w-25-l pa2">
                 <img src={morning} alt='morning'/>
             </div>
-            <div class="fl w-50 w-25-m w-25-l pa2">
-                <img src={morning} class="w-100 db outline black-10"/>
+            <div className="fl w-50 w-25-m w-25-l pa2">
+                <img src={morning} className="w-100 db outline black-10"/>
             </div>
-            <div class="fl w-50 w-25-m w-25-l pa2">
-                <img src={sunflower} class="w-100 db outline black-10"/>      
+            <div className="fl w-50 w-25-m w-25-l pa2">
+                <img src={sunflower} className="w-100 db outline black-10"/>      
             </div>
-            <div class="fl w-50 w-25-m w-25-l pa2">
-                <img src={turntable} alt="Kaytranada 99%" class="w-100 db outline black-10"/>
+            <div className="fl w-50 w-25-m w-25-l pa2">
+                <img src={turntable} alt="Kaytranada 99%" className="w-100 db outline black-10"/>
             </div>
         </div>
     </article>
