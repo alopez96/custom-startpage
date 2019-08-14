@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function Login ({onRouteChange}){
+function Login ({onRouteChange, updateUser}){
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -23,6 +23,7 @@ function Login ({onRouteChange}){
         })
         .then(response => {
             if (response.status == 200) {
+                updateUser(response.data.user._id)
                 onRouteChange('home')
             }
             //handle any other response status

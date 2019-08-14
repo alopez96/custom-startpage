@@ -8,9 +8,14 @@ import Home from './components/home/Home';
 function App() {
 
   const [router, setRoute] = useState('landing');
+  const [userid, setUserid] = useState('');
 
   const onRouteChange = route => {
     setRoute(route);
+  }
+
+  const updateUser = id => {
+    setUserid(id);
   }
 
   return (
@@ -19,14 +24,15 @@ function App() {
         {router == 'landing' 
         ?<Welcome onRouteChange={onRouteChange}></Welcome>
         :(router == 'home'
-        ?<Home></Home>
+        ?<Home userid={userid}></Home>
         :
           (router == 'register'
-          ?<Register onRouteChange={onRouteChange}></Register>
-          :<Login onRouteChange={onRouteChange}></Login>
+          ?<Register onRouteChange={onRouteChange} updateUser={updateUser}></Register>
+          :<Login onRouteChange={onRouteChange} updateUser={updateUser}></Login>
           )
         )
         }
+        
       </header>
     </div>
   );

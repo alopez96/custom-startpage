@@ -38,6 +38,7 @@ class Register extends React.Component {
     })
     .then(response => {
         if (response.status == 200) {
+          this.props.updateUser(response.data.user._id)
             this.props.onRouteChange('home')
         }
         //handle any other response status
