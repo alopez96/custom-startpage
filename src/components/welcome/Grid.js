@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import morning from './images/morning.jpg';
-import sunflower from './images/sunflower.jpg';
-import turntable from './images/turntable.jpg';
+import morning from './../../images/morning.jpg';
+import sunflower from './../../images/sunflower.jpg';
+import turntable from './../../images/turntable.jpg';
 
 class Grid extends Component {
   render() {

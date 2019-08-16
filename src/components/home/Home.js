@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axois from 'axios';
+import Settings from './../settings/Settings';
 
-function Home ({userid}){
+function Home (){
 
-    useEffect(() => {
-        axois.get(`http://localhost:3000/getUser/${userid}`,{})
-        .then(response => {
-            console.log('response ' + response.data.email)
-        })
-        .catch( err => console.log(err));
-    });
+    const [router, setRoute] = useState('home');
+
+    const onRouteChange = route => {
+        setRoute(route);
+      }
 
     return(
         <div className='home'>
-            Home
+            {router == 'settings'
+            ?<Settings></Settings>
+            :<div>
+                <a className="b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib" 
+                onClick={(e) => onRouteChange('settings')}>Settings
+                </a>
+            </div>
+            }
         </div>
     )
 }

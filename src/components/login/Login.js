@@ -5,6 +5,7 @@ function Login ({onRouteChange, updateUser}){
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [response, setResponse] = useState('');
 
     const onEmailChange = email => {
         if(!email) return;
@@ -17,7 +18,6 @@ function Login ({onRouteChange, updateUser}){
     }
 
     const onLoginClicked = () => {
-        console.log('login')
         axios.post(`http://localhost:3000/login/`, {
           email, password
         })
@@ -26,13 +26,12 @@ function Login ({onRouteChange, updateUser}){
                 updateUser(response.data.user._id)
                 onRouteChange('home')
             }
-            //handle any other response status
-            else{
-                console.log('upload error', response.data)
-            }
         })
         //handle error to post
-        .catch( err => console.log(err));
+        .catch( err => {
+          console.log(err.response.data)
+          //setResponse(err.response.data)
+        });
       }
 
     return(
