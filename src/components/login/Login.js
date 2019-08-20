@@ -23,6 +23,7 @@ function Login ({onRouteChange, updateUser}){
         })
         .then(response => {
             if (response.status == 200) {
+                //updateUser and onRouteChange from App.js
                 updateUser(response.data.user._id)
                 onRouteChange('home')
             }

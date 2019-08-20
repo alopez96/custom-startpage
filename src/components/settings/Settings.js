@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Background from './Background';
+import React, { useState, useEffect } from 'react';
 
-function Settings () {
+function Settings ({ userid, onRouteChange }) {
+
     return(
         <div>
-            <Background></Background>
+            <a style={settingBtn}
+            className="b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib" 
+            onClick={(e) => onRouteChange('home')}>Update
+            </a>
         </div>
     )
+}
+
+const settingBtn = {
+    top: 5,
+    right: 5,
+    position: 'fixed'
 }
 
 export default Settings;
