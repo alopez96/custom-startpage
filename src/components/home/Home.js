@@ -48,8 +48,8 @@ function Home ({ userid }){
         })
     }, []);
 
-    const listItems = links.map((link) =>
-    <li>{link}</li>
+    const listItems = links.map((link, i) =>
+        <li>{link}</li>
     );
 
     return(
@@ -64,7 +64,7 @@ function Home ({ userid }){
                 {links ? <ul> {listItems} </ul> : null}
             </div>
 
-            :<Settings userid={userid} onRouteChange={onRouteChange}></Settings>
+            :<Settings userid={userid} onRouteChange={onRouteChange} links={links} setLinks={setLinks}></Settings>
             }
         </div>
     )

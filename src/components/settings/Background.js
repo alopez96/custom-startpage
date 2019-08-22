@@ -3,33 +3,36 @@ import morning from './../../images/morning.jpg';
 import sunflower from './../../images/sunflower.jpg';
 import turntable from './../../images/turntable.jpg';
 
-function Background () {
+function Background ({imageClick}) {
 
-    const imageClick = (value) => {
-        console.log('image clicked ' + value);
-    }
 
     return(
         <div>
         <article>
-        <h2 className="f3 fw4 pa3 mv0">Select Background</h2>
-        <div className="cf pa2">
+        <div className="cf pa2" style={imageStyle}>
             <a className="fl w-50 w-25-m w-25-l pa2 grow pointer" 
-                onClick={(e) => imageClick('morning')}>
+                onClick={(e) => imageClick('morning.jpg')}>
                 <img src={morning} alt="morning" className="w-100 db outline black-10"/>
             </a>
             <div className="fl w-50 w-25-m w-25-l pa2 grow pointer"
-            onClick={(e) => imageClick('sunflower')}>
+            onClick={(e) => imageClick('sunflower.jpg')}>
                 <img src={sunflower} alt="sunflower" className="w-100 db outline black-10"/>      
             </div>
             <div className="fl w-50 w-25-m w-25-l pa2 grow pointer"
-            onClick={(e) => imageClick('turntable')}>
+            onClick={(e) => imageClick('turntable.jpg')}>
                 <img src={turntable} alt="turtable" className="w-100 db outline black-10"/>
             </div>
         </div>
     </article>
         </div>
     )
+}
+
+const imageStyle = {
+    display: 'flex',
+    justifyContent:'space-around',
+    margin: 2,
+    width: 400
 }
 
 export default Background;
