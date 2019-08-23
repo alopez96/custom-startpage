@@ -12,9 +12,9 @@ function Settings ({ userid, onRouteChange, links, setLinks }) {
 
         console.log('image selected', background);
         //POST request to /update/:id
-        axios.put(`http://localhost:3000/updateUser/${userid}`, {
-            background,
-            links
+        axios.put(`http://localhost:3000/update/${userid}`, {
+            background: background,
+            links: links
         })
         .then(response => {
             if(response.status = 200){
