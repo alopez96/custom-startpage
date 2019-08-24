@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Background from './Background';
+import Form from './Form';
 import Link from './Link';
 import axios from 'axios';
 
-function Settings ({ userid, onRouteChange, links, setLinks }) {
-
-    const [background, setBackground] = useState('');
+function Settings ({ userid, onRouteChange, links, setLinks, background, setBackground }) {
 
     const OnSubmit = () => {
         console.log('submit changes');
@@ -42,6 +41,11 @@ function Settings ({ userid, onRouteChange, links, setLinks }) {
         setLinks(newLinks);
     }
 
+    const addLink = text => {
+        const newLinks = [...links, text];
+        setLinks(newLinks);
+      }
+
    
 
     return(
@@ -70,6 +74,7 @@ function Settings ({ userid, onRouteChange, links, setLinks }) {
                     removeLink={removeLink}
                 />
                 ))}
+                <Form addLink={addLink} style={margin}></Form>
             </fieldset>
             <div className="">
                 <input
@@ -82,7 +87,6 @@ function Settings ({ userid, onRouteChange, links, setLinks }) {
             </div>
         </main>
         </article>
-
         
         </div>
     )
@@ -92,6 +96,10 @@ const settingBtn = {
     top: 5,
     right: 5,
     position: 'fixed'
+}
+
+const margin = {
+    marginTop: 20,
 }
 
 export default Settings;

@@ -7,6 +7,7 @@ function Home ({ userid }){
 
     const [router, setRoute] = useState('home');
     const [background, setBackground] = useState('');
+    const [backgroundLink, setBackgroundLink] = useState('');
     const [links, setLinks] = useState([]);
 
     const onRouteChange = route => {
@@ -22,7 +23,8 @@ function Home ({ userid }){
             if(response.status == 200){
                 console.log('response ' + response.data.email)
                 if(response.data.background){
-                    setBackground(awsPrefix + response.data.background)
+                    setBackgroundLink(awsPrefix + response.data.background)
+                    setBackground(response.data.background)
                 }
                 if(response.data.links){
                     setLinks(response.data.links)
@@ -60,11 +62,12 @@ function Home ({ userid }){
                 className="b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib" 
                 onClick={(e) => onRouteChange('settings')}>Settings
                 </a>
-                {background ? <img src={background} style={imageStyle}></img> : null}
+                {background ? <img src={backgroundLink} style={imageStyle}></img> : null}
                 {links ? <ul> {listItems} </ul> : null}
             </div>
 
-            :<Settings userid={userid} onRouteChange={onRouteChange} links={links} setLinks={setLinks}></Settings>
+            :<Settings userid={userid} onRouteChange={onRouteChange} 
+            links={links} setLinks={setLinks} background={background} setBackground={setBackground}></Settings>
             }
         </div>
     )
