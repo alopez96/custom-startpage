@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Background from './Background';
 import Form from './Form';
 import Link from './Link';
@@ -7,17 +7,18 @@ import axios from 'axios';
 function Settings ({ userid, onRouteChange, links, setLinks, background, setBackground }) {
 
     const OnSubmit = () => {
-        console.log('submit changes');
-
-        console.log('image selected', background);
         //POST request to /update/:id
         axios.put(`http://localhost:3000/update/${userid}`, {
             background: background,
             links: links
         })
         .then(response => {
-            if(response.status = 200){
+            if(response.status === 200){
                 console.log('response', response.data)
+                onRouteChange('Home')
+            }
+            else{
+                console.log('Settings.js: error onSubmit', response.status)
             }
         })
         .catch( err => {
@@ -26,14 +27,8 @@ function Settings ({ userid, onRouteChange, links, setLinks, background, setBack
     }
 
     const imageClick = (value) => {
-        console.log('image',value)
         setBackground(value)
     }
-
-    const editLink = e => {
-        console.log('edit link', e)
-    }
-
 
     const removeLink = (index) => {
         const newLinks = [...links];
@@ -46,14 +41,13 @@ function Settings ({ userid, onRouteChange, links, setLinks, background, setBack
         setLinks(newLinks);
       }
 
-   
 
     return(
         <div>
-            <a style={settingBtn}
+            <button style={settingBtn}
             className="b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib" 
             onClick={(e) => onRouteChange('home')}>Cancel
-            </a>
+            </button>
 
             <article className="br3 ba dark-gray b--black-10 mv4 w-350 w-150-m w-50-l mw6 shadow-5 center">
             <main className="pa4 black-80">
@@ -70,7 +64,6 @@ function Settings ({ userid, onRouteChange, links, setLinks, background, setBack
                     key={index}
                     index={index}
                     link={link}
-                    editLink={editLink}
                     removeLink={removeLink}
                 />
                 ))}

@@ -5,7 +5,6 @@ function Login ({onRouteChange, updateUser}){
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [response, setResponse] = useState('');
 
     const onEmailChange = email => {
         if(!email) return;
@@ -22,7 +21,7 @@ function Login ({onRouteChange, updateUser}){
           email, password
         })
         .then(response => {
-            if (response.status == 200) {
+            if (response.status === 200) {
                 //updateUser and onRouteChange from App.js
                 updateUser(response.data.user._id)
                 onRouteChange('home')

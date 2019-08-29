@@ -10,10 +10,10 @@ function Background ({imageClick}) {
         <div>
         <article>
         <div className="cf pa2" style={imageStyle}>
-            <a className="fl w-50 w-25-m w-25-l pa2 grow pointer" 
+            <button className="fl w-50 w-25-m w-25-l pa2 grow pointer" 
                 onClick={(e) => imageClick('morning.jpg')}>
                 <img src={morning} alt="morning" className="w-100 db outline black-10"/>
-            </a>
+            </button>
             <div className="fl w-50 w-25-m w-25-l pa2 grow pointer"
             onClick={(e) => imageClick('sunflower.jpg')}>
                 <img src={sunflower} alt="sunflower" className="w-100 db outline black-10"/>      

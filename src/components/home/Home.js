@@ -20,7 +20,7 @@ function Home ({ userid }){
       useEffect(() => {
         axios.get(`http://localhost:3000/getUser/${userid}`)
         .then(response => {
-            if(response.status == 200){
+            if(response.status === 200){
                 console.log('response ' + response.data.email)
                 if(response.data.background){
                     setBackgroundLink(awsPrefix + response.data.background)
@@ -50,18 +50,18 @@ function Home ({ userid }){
         })
     }, []);
 
-    const listItems = links.map((link, i) =>
-        <li>{link}</li>
+    const listItems = links.map((link, key) =>
+        <li key={key}>{link}</li>
     );
 
     return(
         <div className='home'>
-            {router == 'home'
+            {router === 'home'
             ?<div>
-                <a style={settingBtn}
+                <button style={settingBtn}
                 className="b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib" 
                 onClick={(e) => onRouteChange('settings')}>Settings
-                </a>
+                </button>
                 {background ? <img src={backgroundLink} style={imageStyle}></img> : null}
                 {links ? <ul> {listItems} </ul> : null}
             </div>

@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 function Link ({link, index, removeLink}) {
 
     return(
         <div style={linkStyle}>
-            {link}
+            <div className="b pa2 bg-transparent w-100">{link}</div>
             <button style={btnStyle} onClick={() => removeLink(index)}>x</button>
         </div>
     )

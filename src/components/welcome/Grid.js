@@ -11,16 +11,16 @@ class Grid extends Component {
         <h2 className="f3 fw4 pa3 mv0">Welcome</h2>
         <div className="cf pa2">
             <div className="fl w-50 w-25-m w-25-l pa2">
-                <img src={morning} alt='morning'/>
+                <img src={morning} alt="morning"/>
             </div>
             <div className="fl w-50 w-25-m w-25-l pa2">
-                <img src={morning} className="w-100 db outline black-10"/>
+                <img src={morning} alt="morning" className="w-100 db outline black-10"/>
             </div>
             <div className="fl w-50 w-25-m w-25-l pa2">
-                <img src={sunflower} className="w-100 db outline black-10"/>      
+                <img src={sunflower} alt="sunflower" className="w-100 db outline black-10"/>      
             </div>
             <div className="fl w-50 w-25-m w-25-l pa2">
-                <img src={turntable} alt="Kaytranada 99%" className="w-100 db outline black-10"/>
+                <img src={turntable} alt="turntable" className="w-100 db outline black-10"/>
             </div>
         </div>
     </article>

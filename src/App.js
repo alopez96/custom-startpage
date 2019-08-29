@@ -21,12 +21,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {router == 'landing' 
+        {router === 'landing' 
         ?<Welcome onRouteChange={onRouteChange}></Welcome>
-        :(router == 'home'
+        :(router === 'home'
         ?<Home userid={userid}></Home>
         :
-          (router == 'register'
+          (router === 'register'
           ?<Register onRouteChange={onRouteChange} updateUser={updateUser}></Register>
           :<Login onRouteChange={onRouteChange} updateUser={updateUser}></Login>
           )

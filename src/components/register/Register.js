@@ -27,7 +27,7 @@ function Register ({onRouteChange, updateUser}) {
       email, password, name, joined
     })
     .then(response => {
-        if (response.status == 200) {
+        if (response.status === 200) {
           updateUser(response.data._id)
           onRouteChange('home')
         }
