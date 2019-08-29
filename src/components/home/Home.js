@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Settings from './../settings/Settings';
 import awsPrefix from './../aws';
+import './Home.css';
 
 function Home ({ userid }){
 
@@ -50,8 +51,19 @@ function Home ({ userid }){
         })
     }, []);
 
+
+    //handle onCLick
+    const onLinkClick = (url) => {
+        //open new windown with url
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
+
     const listItems = links.map((link, key) =>
-        <li key={key}>{link}</li>
+        <li className="grow pointer" key={key} 
+            onClick={() => onLinkClick(link)}>
+            {link}
+        </li>
     );
 
     return(
@@ -67,7 +79,9 @@ function Home ({ userid }){
             </div>
 
             :<Settings userid={userid} onRouteChange={onRouteChange} 
-            links={links} setLinks={setLinks} background={background} setBackground={setBackground}></Settings>
+                links={links} setLinks={setLinks} background={background} 
+                setBackground={setBackground} setBackgroundLink={setBackgroundLink}>
+            </Settings>
             }
         </div>
     )

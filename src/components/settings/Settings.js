@@ -3,8 +3,9 @@ import Background from './Background';
 import Form from './Form';
 import Link from './Link';
 import axios from 'axios';
+import awsPrefix from './../aws';
 
-function Settings ({ userid, onRouteChange, links, setLinks, background, setBackground }) {
+function Settings ({ userid, onRouteChange, links, setLinks, background, setBackground, setBackgroundLink }) {
 
     const OnSubmit = () => {
         //POST request to /update/:id
@@ -13,9 +14,9 @@ function Settings ({ userid, onRouteChange, links, setLinks, background, setBack
             links: links
         })
         .then(response => {
-            if(response.status === 200){
+            if(response.status === 200 || response.status === 201){
                 console.log('response', response.data)
-                onRouteChange('Home')
+                onRouteChange('home')
             }
             else{
                 console.log('Settings.js: error onSubmit', response.status)
@@ -27,6 +28,7 @@ function Settings ({ userid, onRouteChange, links, setLinks, background, setBack
     }
 
     const imageClick = (value) => {
+        setBackgroundLink(awsPrefix + value)
         setBackground(value)
     }
 
